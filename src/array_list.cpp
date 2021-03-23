@@ -32,7 +32,7 @@ namespace itis {
         // Tip 1: используйте метод resize(new_capacity) для расширения емкости массива
         // здесь должен быть ваш код ...
         if (capacity_ == size_) {
-        resize(kCapacityGrowthCoefficient+size_);
+        resize(kCapacityGrowthCoefficient+capacity_);
     }
         assert(size_ < capacity_);  // я здесь, чтобы не дать тебе сойти с правильного пути
         data_[size_]=e;

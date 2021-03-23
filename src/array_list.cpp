@@ -31,9 +31,9 @@ namespace itis {
     void ArrayList::Add(Element e) {
         // Tip 1: используйте метод resize(new_capacity) для расширения емкости массива
         // здесь должен быть ваш код ...
-
-        resize(capacity_+kCapacityGrowthCoefficient);
-
+        if (capacity_ == size_) {
+        resize(kCapacityGrowthCoefficient+capacity_);
+    }
         assert(size_ < capacity_);  // я здесь, чтобы не дать тебе сойти с правильного пути
         data_[size_]=e;
         size_++;
@@ -49,9 +49,9 @@ namespace itis {
         // Tip 1: используйте метод resize(new_capacity) для расширения емкости массива
         // напишите свой код здесь ...
 
-
-        resize(capacity_ +kCapacityGrowthCoefficient);
-
+        if (size_ == capacity_) {
+        resize(kCapacityGrowthCoefficient+ capacity_);
+    }
 
         assert(size_ < capacity_);  // я ни в коем случае не дам вам совершить ошибку всей вашей жизни
 

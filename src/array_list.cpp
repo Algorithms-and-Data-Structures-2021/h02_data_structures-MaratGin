@@ -50,7 +50,7 @@ namespace itis {
         // напишите свой код здесь ...
 
         if (size_ == capacity_) {
-        resize(kCapacityGrowthCoefficient+ size_);
+        resize(kCapacityGrowthCoefficient+ capacity_);
     }
 
         assert(size_ < capacity_);  // я ни в коем случае не дам вам совершить ошибку всей вашей жизни
@@ -82,8 +82,8 @@ namespace itis {
         //}
         std::copy(data_+index+1, data_+size_,data_+index);
 
-        size_=size_-1;
-        data_[size_]=Element::UNINITIALIZED;
+        data_[size_-1]=Element::UNINITIALIZED;
+        size_--;
         return e;
     }
 
@@ -144,13 +144,13 @@ namespace itis {
         auto new_data = new Element[new_capacity];
 
         // 2. копируем данные на новый участок
-        std::copy(data_, data_ + size_ - 1, new_data);
+        std::copy(data_, data_ + size_, new_data);
 
         // 3. заполняем "свободные" ячейки памяти значением Element::UNINITIALIZED
         std::fill(new_data + size_, new_data + new_capacity, Element::UNINITIALIZED);
 
         // 4. высвобождаем старый участок памяти меньшего размера
-        delete data_;
+        delete[] data_;
 
         // 5. пересылаем указатель на новый участок памяти
         data_ = new_data;

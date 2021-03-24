@@ -34,7 +34,7 @@ namespace itis {
         //        (4) все остальное
 
         // напишите свой код здесь ...
-        if (size_==0){
+        if (head_== nullptr){
             Node *node= new Node(e, nullptr);
             head_=node;
             tail_=node;

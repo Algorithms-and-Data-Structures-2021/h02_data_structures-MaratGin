@@ -42,14 +42,12 @@ namespace itis {
         }
             if (index==0){
                 Node *node = new Node(e,head_);
-
+                node->next=head_;
                 head_=node;
-                Node *node1 = find_node(1);
-                node->next=node1;
-
             }
                 if (index==size_){
                     Node *node= new Node(e, nullptr);
+                    tail_->next=node;
                     tail_=node;
 
                 }

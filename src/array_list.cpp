@@ -144,12 +144,14 @@ namespace itis {
         auto new_data = new Element[new_capacity];
 
         // 2. копируем данные на новый участок
+        //ошибка?
         std::copy(data_, data_ + size_, new_data);
 
         // 3. заполняем "свободные" ячейки памяти значением Element::UNINITIALIZED
         std::fill(new_data + size_, new_data + new_capacity, Element::UNINITIALIZED);
 
         // 4. высвобождаем старый участок памяти меньшего размера
+        //ошибка?
         delete[] data_;
 
         // 5. пересылаем указатель на новый участок памяти

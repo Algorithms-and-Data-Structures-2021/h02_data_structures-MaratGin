@@ -38,24 +38,30 @@ namespace itis {
             Node *node= new Node(e, nullptr);
             head_=node;
             tail_=node;
-
+             size_++;
         } else{
             if (index==0){
                 Node *node = new Node(e,head_);
+
                 head_=node;
+                Node *node1 = find_node(1);
+                node->next=node1;
+                size_++;
             } else{
                 if (index==size_){
                     Node *node= new Node(e, nullptr);
                     tail_=node;
-
+                      size_++;
                 } else{
                     Node *node=find_node(index-1);
                     Node *newNode= new Node(e,find_node(index));
                     node->next=newNode;
+                    size_++;
                 }
             }
         }
-        size_=size_+1;
+
+
 
     }
 

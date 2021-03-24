@@ -39,22 +39,21 @@ namespace itis {
             head_=node;
             tail_=node;
 
-        }
-        if (index==0){
-            Node *node= new Node(e,head_);
-            head_=node;
+        } else{
+            if (index==0){
+                Node *node = new Node(e,head_);
+                head_=node;
+            } else{
+                if (index==size_){
+                    Node *node= new Node(e, nullptr);
+                    tail_=node;
 
-        }
-        if (index==size_){
-            Node *node= new Node(e, nullptr);
-            tail_=node;
-
-        }
-        if (index>0&&index<size_&&size_>0){
-            Node *node=find_node(index-1);
-            Node *newNode= new Node(e,find_node(index));
-            node->next=newNode;
-
+                } else{
+                    Node *node=find_node(index-1);
+                    Node *newNode= new Node(e,find_node(index));
+                    node->next=newNode;
+                }
+            }
         }
         size_=size_+1;
 
